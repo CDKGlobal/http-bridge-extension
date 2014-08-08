@@ -1,0 +1,7 @@
+*~
+*.swp
+.idea/
+build/
+.gradle/
+*.iml
+atlassian*.xml

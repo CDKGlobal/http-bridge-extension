@@ -1,0 +1,20 @@
+<monitor>
+    <name>RiemannBridge</name>
+    <type>managed</type>
+    <description>Riemann Bridge</description>
+    <monitor-configuration></monitor-configuration>
+    <monitor-run-task>
+        <execution-style>continuous</execution-style>
+        <name>Riemann Bridge</name>
+        <display-name>Riemann Bridge</display-name>
+        <description>Riemann Bridge</description>
+        <type>java</type>
+        <task-arguments>
+            <argument name="port" is-required="false" default-value="9999"/>
+        </task-arguments>
+        <java-task>
+            <classpath>riemann-bridge-extension-1.0.jar</classpath>
+            <impl-class>net.fawad.riemannbridge.RiemannBridge</impl-class>
+        </java-task>
+    </monitor-run-task>
+</monitor>
