@@ -3,6 +3,10 @@ apply plugin: 'java'
 sourceCompatibility = 1.5
 version = '1.0'
 
+configurations {
+    releaseJars
+}
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -14,6 +18,13 @@ repositories {
 dependencies {
     compile 'com.appdynamics:machine-agent:3.7.11'
     compile 'log4j:log4j:1.2.17'
+    releaseJars 'org.apache.httpcomponents:httpclient:4.3.5'
+
+    configurations.compile.extendsFrom(configurations.releaseJars)
 
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jar {
+    from configurations.releaseJars.collect { it.isDirectory() ? it : zipTree(it) }
 }
