@@ -13,12 +13,15 @@ repositories {
     maven {
         url 'https://github.com/Appdynamics/maven-repo/raw/master/releases'
     }
+    maven {
+        url 'http://maven.restlet.com'
+    }
 }
 
 dependencies {
     compile 'com.appdynamics:machine-agent:3.7.11'
     compile 'log4j:log4j:1.2.17'
-    releaseJars 'org.apache.httpcomponents:httpclient:4.3.5'
+    releaseJars 'org.restlet.jse:org.restlet:2.2.2'
 
     configurations.compile.extendsFrom(configurations.releaseJars)
 

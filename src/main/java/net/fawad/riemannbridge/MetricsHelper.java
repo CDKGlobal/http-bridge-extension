@@ -8,10 +8,11 @@ public class MetricsHelper {
     private final AManagedMonitor monitor;
     private static final Logger logger = Logger.getLogger(RandomWriter.class);
 
-    public MetricsHelper(AManagedMonitor monitor){
+    public MetricsHelper(AManagedMonitor monitor) {
 
         this.monitor = monitor;
     }
+
     public void printMetric(String metricName, long metricValue, String aggregation, String timeRollup, String cluster) {
         MetricWriter metricWriter = monitor.getMetricWriter(metricName,
                 aggregation,
