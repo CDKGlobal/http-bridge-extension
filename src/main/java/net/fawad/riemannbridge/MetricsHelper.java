@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 
 public class MetricsHelper {
     private final AManagedMonitor monitor;
-    private static final Logger logger = Logger.getLogger(RandomWriter.class);
+    private static final Logger logger = Logger.getLogger(MetricsHelper.class);
 
     public MetricsHelper(AManagedMonitor monitor) {
 
