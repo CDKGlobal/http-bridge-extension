@@ -21,12 +21,12 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 # Posting Data
 
-- Request should be posted to `http://localhost:8888/hostmetrics/metric`
+- Request should be posted to `http://localhost:8888/hostmetrics/metric` as a [form](http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1)
 
 ## Fields
 
-- name
-- value
-- aggregationtype
-- rolluptype
-- clusterrolluptype
+- [name](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Java#BuildaMonitoringExtensionUsingJava-MetricPath): Pipe(|) separated path of the custom metric.
+- value: long value of the metric
+- [aggregationtype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-AggregationQualifier)
+- [rolluptype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-TimeRollUpQualifier)
+- [clusterrolluptype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-ClusterRollUpQualifier)
