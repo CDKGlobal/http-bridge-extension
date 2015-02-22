@@ -11,7 +11,15 @@ import java.util.concurrent.CountDownLatch;
 
 public class HttpBridge extends AManagedMonitor {
     private static final Logger logger = Logger.getLogger(HttpBridge.class);
+    private final CountDownLatch latch;
 
+    public HttpBridge() {
+        this(new CountDownLatch(1));
+    }
+
+    public HttpBridge(CountDownLatch latch) {
+        this.latch = latch;
+    }
     public TaskOutput execute(Map<String, String> args, TaskExecutionContext taskExecutionContext) throws TaskExecutionException {
         logger.info("HTTP Bridge started");
         final MetricsHelper metricsHelper = new MetricsHelper(this);
@@ -26,7 +34,7 @@ public class HttpBridge extends AManagedMonitor {
 
     private void waitForever() {
         try {
-            new CountDownLatch(1).await();
+            latch.await();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
