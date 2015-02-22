@@ -2,7 +2,7 @@
 
 Simple extension to allow writing custom metrics to AppDynamics
 
-[![Build Status](https://travis-ci.org/fhalim/riemann-bridge-extension.svg?branch=master)](https://travis-ci.org/fhalim/riemann-bridge-extension)
+[![Build Status](https://travis-ci.org/fhalim/http-bridge-extension.svg?branch=master)](https://travis-ci.org/fhalim/http-bridge-extension)
 
 # Prerequisites
 
