@@ -21,7 +21,7 @@ repositories {
 dependencies {
     compile 'com.appdynamics:machine-agent:3.7.11'
     compile 'log4j:log4j:1.2.17'
-    releaseJars 'org.restlet.jse:org.restlet:2.2.2'
+    releaseJars 'org.restlet.jse:org.restlet:2.3.1'
 
     configurations.compile.extendsFrom(configurations.releaseJars)
 

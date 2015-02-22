@@ -26,7 +26,7 @@ public class HttpBridgeTests {
 
         final Future<Object> serverFuture = executorService.submit(new Callable<Object>() {
             public Object call() throws Exception {
-                httpBridge.execute(mock(Map.class), mock(TaskExecutionContext.class));
+                httpBridge.execute((Map<String, String>)mock(Map.class), mock(TaskExecutionContext.class));
                 return null;
             }
         });
