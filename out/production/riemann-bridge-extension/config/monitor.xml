@@ -14,7 +14,7 @@
         </task-arguments>
         <java-task>
             <classpath>riemann-bridge-extension-1.0.jar</classpath>
-            <impl-class>net.fawad.riemannbridge.RiemannBridge</impl-class>
+            <impl-class>net.fawad.httplistener.HttpBridge</impl-class>
         </java-task>
     </monitor-run-task>
 </monitor>

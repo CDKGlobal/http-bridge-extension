@@ -1,12 +1,12 @@
-package net.fawad.riemannbridge;
+package net.fawad.httplistener;
 
 import com.singularity.ee.agent.systemagent.api.AManagedMonitor;
 import com.singularity.ee.agent.systemagent.api.MetricWriter;
 import org.apache.log4j.Logger;
 
 public class MetricsHelper {
-    private final AManagedMonitor monitor;
     private static final Logger logger = Logger.getLogger(MetricsHelper.class);
+    private final AManagedMonitor monitor;
 
     public MetricsHelper(AManagedMonitor monitor) {
 

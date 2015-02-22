@@ -1,4 +1,4 @@
-package net.fawad.riemannbridge;
+package net.fawad.httplistener;
 
 import com.singularity.ee.agent.systemagent.api.AManagedMonitor;
 import com.singularity.ee.agent.systemagent.api.TaskExecutionContext;
@@ -8,15 +8,12 @@ import org.apache.log4j.Logger;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-public class RiemannBridge extends AManagedMonitor {
-    private static final Logger logger = Logger.getLogger(RiemannBridge.class);
+public class HttpBridge extends AManagedMonitor {
+    private static final Logger logger = Logger.getLogger(HttpBridge.class);
 
-    @Override
     public TaskOutput execute(Map<String, String> args, TaskExecutionContext taskExecutionContext) throws TaskExecutionException {
-        logger.info("Riemann Bridge started");
+        logger.info("HTTP Bridge started");
         final MetricsHelper metricsHelper = new MetricsHelper(this);
         try {
             new WebListener(metricsHelper).start();
@@ -24,7 +21,7 @@ public class RiemannBridge extends AManagedMonitor {
             throw new TaskExecutionException("Could not start web server", e);
         }
         waitForever();
-        return new TaskOutput("Riemann Bridge task completed");
+        return new TaskOutput("HTTP Bridge task completed");
     }
 
     private void waitForever() {

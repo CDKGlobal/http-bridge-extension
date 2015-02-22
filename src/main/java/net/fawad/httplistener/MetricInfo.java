@@ -1,4 +1,4 @@
-package net.fawad.riemannbridge;
+package net.fawad.httplistener;
 
 public class MetricInfo {
     private final String name;
