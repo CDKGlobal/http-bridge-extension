@@ -6,7 +6,7 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 # Prerequisites
 
-- Java 1.5 or later
+- Java 7 or later
 
 # Building
 
