@@ -21,7 +21,7 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 # Posting Data
 
-- Request should be posted to `http://localhost:8888/hostmetrics/metric` as a [form](http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1)
+- Request should be posted to `http://localhost:9999/hostmetrics/metric` as a [form](http://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.1)
 
 ## Fields
 

@@ -21,10 +21,10 @@ public class HttpBridge extends AManagedMonitor {
         this.latch = latch;
     }
     public TaskOutput execute(Map<String, String> args, TaskExecutionContext taskExecutionContext) throws TaskExecutionException {
-        logger.info("HTTP Bridge started");
+        logger.info("Starting HTTP Bridge...");
         final MetricsHelper metricsHelper = new MetricsHelper(this);
         try {
-            new WebListener(metricsHelper).start();
+            new WebListener(metricsHelper, Integer.valueOf(args.get("port"))).start();
         } catch (Throwable e) {
             throw new TaskExecutionException("Could not start web server", e);
         }

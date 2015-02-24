@@ -10,7 +10,7 @@ import org.restlet.representation.Representation;
 import org.restlet.resource.ClientResource;
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.HashMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -26,12 +26,12 @@ public class HttpBridgeTests {
 
         final Future<Object> serverFuture = executorService.submit(new Callable<Object>() {
             public Object call() throws Exception {
-                httpBridge.execute((Map<String, String>)mock(Map.class), mock(TaskExecutionContext.class));
+                httpBridge.execute(new HashMap<String, String>(){{put("port", "9099");}}, mock(TaskExecutionContext.class));
                 return null;
             }
         });
         Thread.sleep(5000); // Assuming server spins up in this time
-        final Representation representation = new ClientResource("http://localhost:8888/hostmetrics/metric").post(new Form() {{
+        final Representation representation = new ClientResource("http://localhost:9099/hostmetrics/metric").post(new Form() {{
             this.set("name", "test");
             this.set("value", "123");
             this.set("aggregationtype", "AVERAGE");

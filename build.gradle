@@ -1,6 +1,6 @@
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.7
 version = '1.0'
 
 configurations {
@@ -8,7 +8,6 @@ configurations {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven {
         url 'https://github.com/Appdynamics/maven-repo/raw/master/releases'
@@ -16,6 +15,7 @@ repositories {
     maven {
         url 'http://maven.restlet.com'
     }
+    mavenLocal()
 }
 
 dependencies {

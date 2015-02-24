@@ -10,7 +10,7 @@
         <description>HTTP interface for writing metrics to AppDynamics</description>
         <type>java</type>
         <task-arguments>
-            <argument name="port" is-required="false" default-value="9999"/>
+            <argument name="port" is-required="true" default-value="9999"/>
         </task-arguments>
         <java-task>
             <classpath>http-bridge-extension-1.0.jar</classpath>

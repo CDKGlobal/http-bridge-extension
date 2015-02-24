@@ -10,11 +10,12 @@ import org.restlet.routing.Router;
 public class WebListener extends Application {
     public static final String METRICS_HELPER_NAME = "metricshelper";
     private static final Logger logger = Logger.getLogger(WebListener.class);
-    private static final int port = 8888;
     private final MetricsHelper helper;
+    private final int port;
 
-    public WebListener(MetricsHelper helper) {
+    public WebListener(MetricsHelper helper, int port) {
         this.helper = helper;
+        this.port = port;
     }
 
     public void start() throws Exception {
@@ -22,7 +23,7 @@ public class WebListener extends Application {
         component.getServers().add(Protocol.HTTP, port);
         component.getDefaultHost().attach("/hostmetrics", new WebListenerApplication());
         component.start();
-        logger.info("Restlet server started");
+        logger.info("Restlet server started on port " + port );
     }
 
     private class WebListenerApplication extends Application {
