@@ -38,7 +38,13 @@ public class HttpBridgeTests {
             this.set("rolluptype", "AVERAGE");
             this.set("clusterrolluptype", "INDIVIDUAL");
         }});
+
+        Assert.assertTrue(representation.getText().startsWith("Update accepted"));
+
         final boolean cancelledNow = serverFuture.cancel(true);
-        Assert.assertTrue(cancelledNow);
+        Assert.assertTrue("Server should not have died yet", cancelledNow);
     }
+
+
 }
+

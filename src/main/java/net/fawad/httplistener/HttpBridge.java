@@ -1,6 +1,7 @@
 package net.fawad.httplistener;
 
 import com.singularity.ee.agent.systemagent.api.AManagedMonitor;
+import com.singularity.ee.agent.systemagent.api.MetricWriter;
 import com.singularity.ee.agent.systemagent.api.TaskExecutionContext;
 import com.singularity.ee.agent.systemagent.api.TaskOutput;
 import com.singularity.ee.agent.systemagent.api.exception.TaskExecutionException;
@@ -8,10 +9,13 @@ import org.apache.log4j.Logger;
 
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 
 public class HttpBridge extends AManagedMonitor {
     private static final Logger logger = Logger.getLogger(HttpBridge.class);
     private final CountDownLatch latch;
+    private static final ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1);
 
     public HttpBridge() {
         this(new CountDownLatch(1));
@@ -20,8 +24,14 @@ public class HttpBridge extends AManagedMonitor {
     public HttpBridge(CountDownLatch latch) {
         this.latch = latch;
     }
+
     public TaskOutput execute(Map<String, String> args, TaskExecutionContext taskExecutionContext) throws TaskExecutionException {
         logger.info("Starting HTTP Bridge...");
+        new Heartbeat(scheduledExecutorService, this.getMetricWriter("Custom Metrics|HttpBridge|running",
+                MetricWriter.METRIC_AGGREGATION_TYPE_OBSERVATION,
+                MetricWriter.METRIC_TIME_ROLLUP_TYPE_CURRENT,
+                MetricWriter.METRIC_CLUSTER_ROLLUP_TYPE_INDIVIDUAL
+        ), 30).start();
         final MetricsHelper metricsHelper = new MetricsHelper(this);
         try {
             new WebListener(metricsHelper, Integer.valueOf(args.get("port"))).start();
