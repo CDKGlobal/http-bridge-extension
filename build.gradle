@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'distribution'
 
 sourceCompatibility = 1.7
 version = '1.0'
@@ -35,4 +36,13 @@ task wrapper(type: Wrapper) {
 
 jar {
     from configurations.releaseJars.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+task zip(type: Zip) {
+
+    from jar.outputs.files
+    from('src/main/resources/config/') {
+        include '*.xml'
+    }
+    into 'HttpBridge'
 }

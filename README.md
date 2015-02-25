@@ -10,13 +10,11 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 # Building
 
-`./gradlew package`
+`./gradlew clean check zip`
 
 # Installation
 
-- Create directory `monitors/HttpBridge` in the AppDynamics Machine Agent directory.
-- Copy http-bridge-extensions-1.0.jar from `build/libs` into `monitors/HttpBridge`
-- Copy `src/main/resources/config/monitor.xml` into `monitors/HttpBridge`
+- Unzip `./build/distributions/http-bridge-extension-1.0.zip` into the machineagent `monitors` directory
 - Ensure that the values in the `task-arguments` section in `monitor.xml` are satisfactory.
 
 # Posting Data
