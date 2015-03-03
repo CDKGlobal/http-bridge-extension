@@ -32,3 +32,10 @@ Releases of the extension are available at [GitHub Releases](https://github.com/
 - [aggregationtype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-AggregationQualifier)
 - [rolluptype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-TimeRollUpQualifier)
 - [clusterrolluptype](https://docs.appdynamics.com/display/PRO14S/Build+a+Monitoring+Extension+Using+Scripts#BuildaMonitoringExtensionUsingScripts-ClusterRollUpQualifier)
+
+
+## Examples
+
+Posting an averaged value
+
+`curl -d "name=Custom Metrics|Useless|Average&value=0&aggregationtype=AVERAGE&rolluptype=AVERAGE&clusterrolluptype=INDIVIDUAL" http://localhost:9999/hostmetrics/metric`
