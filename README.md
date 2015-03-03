@@ -8,13 +8,17 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 - Java 7 or later
 
+# Download
+
+Releases of the extension are available at [GitHub Releases](releases/)
+
 # Building
 
 `./gradlew clean check zip`
 
 # Installation
 
-- Unzip `./build/distributions/http-bridge-extension-1.0.zip` into the machineagent `monitors` directory
+- Unzip `http-bridge-extension-1.0.zip` into the machineagent `monitors` directory
 - Ensure that the values in the `task-arguments` section in `monitor.xml` are satisfactory.
 
 # Posting Data
