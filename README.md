@@ -10,7 +10,7 @@ Simple extension to allow writing custom metrics to AppDynamics
 
 # Download
 
-Releases of the extension are available at [GitHub Releases](releases/)
+Releases of the extension are available at [GitHub Releases](https://github.com/fhalim/http-bridge-extension/releases)
 
 # Building
 
