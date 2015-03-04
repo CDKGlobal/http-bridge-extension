@@ -7,6 +7,8 @@ import com.singularity.ee.agent.systemagent.api.TaskOutput;
 import com.singularity.ee.agent.systemagent.api.exception.TaskExecutionException;
 import org.apache.log4j.Logger;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ScheduledExecutorService;
@@ -27,7 +29,13 @@ public class HttpBridge extends AManagedMonitor {
 
     public TaskOutput execute(Map<String, String> args, TaskExecutionContext taskExecutionContext) throws TaskExecutionException {
         logger.info("Starting HTTP Bridge...");
-        new Heartbeat(scheduledExecutorService, this.getMetricWriter("Custom Metrics|HttpBridge|running",
+        String hostName;
+        try {
+            hostName = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException e) {
+            hostName = "UnknownHostName";
+        }
+        new Heartbeat(scheduledExecutorService, this.getMetricWriter("Custom Metrics|HttpBridge|" + hostName + "|running",
                 MetricWriter.METRIC_AGGREGATION_TYPE_OBSERVATION,
                 MetricWriter.METRIC_TIME_ROLLUP_TYPE_CURRENT,
                 MetricWriter.METRIC_CLUSTER_ROLLUP_TYPE_INDIVIDUAL
