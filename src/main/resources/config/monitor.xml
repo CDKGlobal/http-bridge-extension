@@ -13,7 +13,7 @@
             <argument name="port" is-required="true" default-value="9999"/>
         </task-arguments>
         <java-task>
-            <classpath>http-bridge-extension-1.0.jar</classpath>
+            <classpath>http-bridge-extension-1.0.1.jar</classpath>
             <impl-class>net.fawad.httplistener.HttpBridge</impl-class>
         </java-task>
     </monitor-run-task>
